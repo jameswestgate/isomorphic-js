@@ -13,17 +13,18 @@
 	}
 	
 	//Get the tokens from the inline template
-	var template = document.getElementById('test-flight'),
+	var element = document.getElementById('test-flight'),
+		template = element.innerHTML,
 		writer = new Mustache.Writer(),
-		tokens = writer.parse(template.outerHTML);
+		tokens = writer.parse(template);
 
 	//Create a context from the model 
 	var context = new Mustache.Context(model);
 
-	//Render markup and apply to target element
-	var html = writer.renderTokens(tokens, context, null, template.outerHTML);
+	//Render markup
+	var html = writer.renderTokens(tokens, context, null, template);
 
 	//Replace html
-	template.outerHTML = html;
+	element.innerHTML = html;
 
 })();

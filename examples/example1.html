@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Isomorphic Javascript with Mustache | Example 1</title>
+	<link rel="stylesheet" href="styles.css" type="text/css" media="screen">
+	
+	<script type="text/javascript" src="/bower_components/mustache/mustache.js"></script>
+</head>
+<body>
+	
+	<h1>X-15 Test Flight Data</h1>
+	<dl id="test-flight">
+		<dt>Name:</dt><dd>{{firstName}} {{initial}} {{lastName}}</dd>
+		<dt>Flight No:</dt><dd>{{flight}}</dd>
+		<dt>Date:</dt><dd>{{date}}</dd>
+		<dt>Altitude:</dt><dd>{{roundAltitude}} mi</dd>
+	</dl>
+
+	<script type="text/javascript" src="example1.js"></script>
+</body>
+</html>

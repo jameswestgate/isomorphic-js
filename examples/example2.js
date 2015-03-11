@@ -22,7 +22,7 @@
 	var context = new Mustache.Context(model);
 
 	//Render markup and apply to target element
-	var html = writer.renderTokens(tokens, context, null, template);
+	var html = writer.renderTokens(tokens, context);
 
 	//Replace html
 	element.innerHTML = html;
@@ -46,7 +46,7 @@
 	button.addEventListener('click', function() {
 
 		context = new Mustache.Context(modelB);
-		html = writer.renderTokens(tokens, context, null, template);
+		html = writer.renderTokens(tokens, context);
 		element.innerHTML = html;
 	});
 

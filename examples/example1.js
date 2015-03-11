@@ -22,7 +22,7 @@
 	var context = new Mustache.Context(model);
 
 	//Render markup
-	var html = writer.renderTokens(tokens, context, null, template);
+	var html = writer.renderTokens(tokens, context);
 
 	//Replace html
 	element.innerHTML = html;

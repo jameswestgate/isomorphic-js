@@ -1,4 +1,4 @@
-window.isomorphic = window.isomorphic || {};
+window.iso = window.iso || {};
 
 (function(o) {
 
@@ -85,7 +85,7 @@ window.isomorphic = window.isomorphic || {};
 
 					if (existing !== bound) {
 
-						console.log('^ Move mode with id:' + id + ' before:' + bound);
+						console.log('^ Move node with id:' + id + ' before:' + bound);
 						target.insertBefore(existing, bound);
 					}
 				}
@@ -151,4 +151,4 @@ window.isomorphic = window.isomorphic || {};
 		return tag + tags[tag];
 	}
 
-})(window.isomorphic);
+})(window.iso);

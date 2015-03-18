@@ -10,7 +10,7 @@
 		roundAltitude: function() {
 			return Math.round(this.altitude);
 		}
-	}
+	};
 	
 	//Get the tokens from the inline template
 	var element = document.getElementById('test-flight'),

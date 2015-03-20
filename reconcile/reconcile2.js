@@ -31,7 +31,7 @@
 	
 	//Get the tokens from the inline template
 	var element = document.getElementById('test-flight-table'),
-		template = element.innerHTML,
+		template = element.outerHTML,
 		writer = new Mustache.Writer(),
 		tokens = writer.parse(template);
 
@@ -42,23 +42,26 @@
 	var html = writer.renderTokens(tokens, context);
 
 	//Replace html
-	element.innerHTML = html;
+	element.outerHTML = html;
 
 	//When the button is clicked, render the new model and overwrite the DOM
 	var button = document.getElementsByTagName('button')[0];
 
 	button.addEventListener('click', function() {
 
-		//Change the model slightly
+		//Modify the model slightly
 		model.flights[1].altitude = 51.4;
 
-		//Create a new context and re-render the markup
-		context = new Mustache.Context(model);
-		html = writer.renderTokens(tokens, context);
+		//Create a new context and re-render the markup into a temp div
+        var context = new Mustache.Context(model),
+			div = document.createElement('div'),
+			element = document.getElementById('test-flight-table');
 
-		//Replace the entire node
-		element.innerHTML = html;
+		//Render the context containing the updated model into the div
+		div.innerHTML = writer.renderTokens(tokens, context);
+		
+		//Now merge the contents of the div into the existing dom (view changes in console)
+		iso.mergeNodes(div.firstChild, element, false);
 	});
 
 })();
-
